@@ -1,5 +1,6 @@
 #pragma once
 
+#include "engine_device.hpp"
 #include "lv-pipeline.hpp"
 #include "lv-window.hpp"
 
@@ -13,6 +14,7 @@ public:
 
 private:
   LvWindow lv_window{WIDTH, HEIGHT, "vulkan example app"};
-  LvPipeline lv_pipeline{"shaders/shader.vert.spv", "shaders/shader.frag.spv"};
+  LvDevice device{lv_window};
+  LvPipeline lv_pipeline{device, "shaders/shader.vert.spv", "shaders/shader.frag.spv", LvPipeline::default_pipeline_config_info(WIDTH, HEIGHT)};
 };
 } // namespace lv

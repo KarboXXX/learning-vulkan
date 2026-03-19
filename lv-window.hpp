@@ -14,9 +14,8 @@ public:
   LvWindow(const LvWindow &) = delete;
   LvWindow &operator=(const LvWindow &) = delete;
 
-  bool should_close() {
-    return glfwWindowShouldClose(window);;
-  }  
+  bool should_close();
+  void create_window_surface(VkInstance instance, VkSurfaceKHR *surface);  
   
   private:
     GLFWwindow *window;
